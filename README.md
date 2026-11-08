@@ -1,53 +1,121 @@
-<<<<<<< HEAD
-# FarmTrust
+# 🌾 FarmTrust
 
-A web application for connecting farmers and buyers in Sri Lanka with transparency and trust.
+> An intelligent, data-driven agricultural marketplace and price forecasting platform designed to bring price predictability, transparency, and seamless trade to farmers and buyers.
 
-## Project Structure
+---
 
-- `backend/`: Express.js server with MongoDB
-- `frontend/`: React.js client with Tailwind CSS styling
+## 🚀 Overview
 
-## Setup
+Agricultural supply chains often suffer from extreme price volatility, market opacity, and intermediaries that reduce profitability for farmers while inflating costs for buyers. **FarmTrust** provides a unified ecosystem that integrates fair price discovery, direct farmer-to-buyer trade, order management, and predictive time-series machine learning models to forecast crop prices.
 
-1. Install Node.js and npm.
-2. Install MongoDB: Download from https://www.mongodb.com/try/download/community or use `winget install MongoDB.MongoDBCommunity`. Start with `mongod --dbpath C:\data\db`.
-3. Install dependencies:
-   - Backend: `cd backend && npm install`
-   - Frontend: `cd frontend && npm install`
-4. .env file is created in backend with default values. Update JWT_SECRET for security.
+---
 
-## Running
+## 🛠️ Tech Stack & Architecture
 
-1. Start MongoDB: `mongod --dbpath C:\data\db`
-2. Start backend: `cd backend && npm start` (runs on http://localhost:5000)
-3. Start frontend: `cd frontend && npm start` (runs on http://localhost:3000)
-4. Open http://localhost:3000
+FarmTrust is architected with a decoupled microservice pattern:
 
-## Features
+* **Frontend:** [React.js](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/), [Recharts](https://recharts.org/), [Framer Motion](https://www.framer.com/motion/), [Lucide React](https://lucide.dev/)
+* **Core Backend:** [Node.js](https://nodejs.org/), [Express.js](https://expressjs.com/), [Sequelize ORM](https://sequelize.org/) (MySQL / SQLite), [JWT](https://jwt.io/) & [Google OAuth 2.0](https://developers.google.com/identity)
+* **AI Microservice:** [Python 3](https://www.python.org/), [FastAPI](https://fastapi.tiangolo.com/), [Prophet](https://facebook.github.io/prophet/) (Time-Series Forecasting), [Pandas](https://pandas.pydata.org/), [Uvicorn](https://www.uvicorn.org/)
 
-- **User Authentication**: Registration and login for farmers, buyers, and admins
-- **Responsive Design**: Mobile-friendly UI with Tailwind CSS
-- **Farmer Dashboard**: List crops with details
-- **Buyer Dashboard**: Browse and search available crops
-- **Admin Panel**: Manage users, crops, and system settings
-- **Modern Styling**: Green gradient theme with custom components
+---
 
-## Styling
+## ✨ Key Features
 
-The application uses:
-- **Tailwind CSS**: Utility-first CSS framework for responsive design
-- **Custom CSS**: Additional styling in `src/index.css` with custom classes
-- **Color Scheme**: Primary green (#10b981), secondary darker green (#059669), accent yellow (#f59e0b)
+- **🌾 Farmer Dashboard:** Manage crop listings, track inventory, view pending/confirmed orders, and monitor localized district pricing.
+- **🛒 Buyer Marketplace:** Discover available crops directly from farmers, review quality specs, compare market prices, and place orders.
+- **📈 AI Price Forecasting:** Powered by Facebook Prophet, providing time-series trend analysis and price projections across major crops to help farmers plan harvest timing and pricing.
+- **🛡️ Admin & Moderation Portal:** Verify users, oversee crop listings, manage transactions, and inspect platform analytics.
+- **🔐 Secure Authentication:** Role-based access control (Farmer, Buyer, Admin) with email/password verification and Google OAuth integration.
 
-## API Endpoints
+---
 
-- POST /api/auth/register
-- POST /api/auth/login
-- GET /api/crops
-- POST /api/crops (authenticated)
-- GET /api/users/profile (authenticated)
-- PUT /api/users/profile (authenticated)
-=======
-# FarmtrustDemo
->>>>>>> 65831607da4e6ff6fe608e1b39978d98d40b6490
+## 📁 Project Structure
+
+```
+FarmtrustDemo/
+├── frontend/          # React Single Page Application (Tailwind CSS, Recharts)
+├── backend/           # Node.js Express REST API & Sequelize Models
+└── ai-service/        # FastAPI Python Microservice for Crop Price Forecasting
+```
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+- **Node.js** (v18+ recommended)
+- **Python** (v3.10 - 3.12 recommended)
+- **MySQL** (or SQLite for local lightweight development)
+
+---
+
+### 1. AI Microservice Setup (FastAPI & Prophet)
+
+```bash
+cd ai-service
+
+# Create and activate virtual environment
+python -m venv venv
+# On Windows:
+.\venv\Scripts\activate
+# On Linux/macOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install fastapi uvicorn pandas prophet
+
+# Run the AI service (runs on http://127.0.0.1:8000)
+uvicorn main:app --reload --port 8000
+```
+
+---
+
+### 2. Backend Setup (Node.js & Express)
+
+```bash
+cd backend
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env with your database credentials, JWT secret, and email settings
+
+# Start backend server (runs on http://localhost:5000)
+npm run dev   # or npm start
+```
+
+---
+
+### 3. Frontend Setup (React.js)
+
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env
+
+# Start React development server (runs on http://localhost:3000)
+npm start
+```
+
+---
+
+## 👥 The Team & Roles
+
+* **Lead System Architect & AI Engineer** – System architecture, AI forecasting microservice, core backend API design & testing, landing page UI/UX
+* **Security & Full-Stack Engineer** – Authentication flows, OAuth integration, and core user services
+* **Frontend Engineer (Farmer Experience Lead)** – Farmer Dashboard & crop listing workflows
+* **Frontend Engineer (Marketplace Lead)** – Buyer Dashboard & marketplace checkout experience
+* **Operations & Backend Engineer** – Admin Portal, platform analytics, and governance
+
+---
+
+## 📄 License
+
+This project was built for educational and demonstration purposes as a capstone project.
